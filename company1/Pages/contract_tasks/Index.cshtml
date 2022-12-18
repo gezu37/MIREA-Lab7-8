@@ -1,0 +1,90 @@
+﻿@page
+@model company1.Pages.contract_tasks.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.contract_task[0].type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.contract_task[0].author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.contract_task[0].executor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.contract_task[0].created)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.contract_task[0].finished)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.contract_task[0].priority)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.contract_task[0].deadline)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.contract_task[0].contact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.contract_task[0].contract)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.contract_task[0].equipment)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.contract_task) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.executor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.created)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.finished)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.priority)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.deadline)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contact.company)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contract.contract_text)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.equipment.name)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.task_id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.task_id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.task_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

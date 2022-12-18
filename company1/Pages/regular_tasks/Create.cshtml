@@ -1,0 +1,68 @@
+﻿@page
+@model company1.Pages.regular_tasks.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>regular_task</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="regular_task.type" class="control-label"></label>
+                <input asp-for="regular_task.type" class="form-control" />
+                <span asp-validation-for="regular_task.type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="regular_task.contact_id" class="control-label"></label>
+                <select asp-for="regular_task.contact_id" class ="form-control" asp-items="ViewBag.contact_id"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="regular_task.author" class="control-label"></label>
+                <input asp-for="regular_task.author" class="form-control" />
+                <span asp-validation-for="regular_task.author" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="regular_task.executor" class="control-label"></label>
+                <input asp-for="regular_task.executor" class="form-control" />
+                <span asp-validation-for="regular_task.executor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="regular_task.created" class="control-label"></label>
+                <input asp-for="regular_task.created" class="form-control" />
+                <span asp-validation-for="regular_task.created" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="regular_task.finished" class="control-label"></label>
+                <input asp-for="regular_task.finished" class="form-control" />
+                <span asp-validation-for="regular_task.finished" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="regular_task.priority" class="control-label"></label>
+                <input asp-for="regular_task.priority" class="form-control" />
+                <span asp-validation-for="regular_task.priority" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="regular_task.deadline" class="control-label"></label>
+                <input asp-for="regular_task.deadline" class="form-control" />
+                <span asp-validation-for="regular_task.deadline" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
